@@ -1,12 +1,12 @@
-# SmartStudy Project
+#SmartStudy Project
 
-## Overview
+##Overview
 
 **SmartStudy** is an all-in-one academic companion web application designed to help students and educators organize study materials, collaborate in forums, manage schedules, and access tailored resources for enhanced learning. The platform supports competency-based learning and is suitable for all educational levels.
 
 ---
 
-## Features
+##Features
 
 - **User Registration & Authentication:**  
   Secure sign-up and login with JWT-based authentication.
@@ -28,7 +28,7 @@
 
 ---
 
-## Tech Stack
+##Tech Stack
 
 - **Frontend:** React, Tailwind CSS
 - **Backend:** Node.js, Express
@@ -38,7 +38,7 @@
 
 ---
 
-## Folder Structure
+##Folder Structure
 
 ```
 client/
@@ -49,20 +49,20 @@ client/
 server/
   controllers/       # Express route controllers
   middleware/        # Authentication and authorization middleware
-  models/            # Mongoose models (if using MongoDB)
+  models/            # Mongoose models 
   routes/            # Express route definitions
 ```
 
 ---
 
-## Getting Started
+##Getting Started
 
-### Prerequisites
+###Prerequisites
 
 - Node.js & npm installed
-- MongoDB running (if using MongoDB)
+- MongoDB running 
 
-### Installation
+###Installation
 
 1. **Clone the repository:**
    ```
@@ -77,3 +77,45 @@ server/
    ```
 
 3. **Install
+   cd ../client
+   npm install
+   ```
+
+4. **Configure environment variables:**
+   - Create a `.env` file in the `server` folder with your JWT secret and database URI.
+
+5. **Run the backend server:**
+   ```
+   npm start
+   ```
+
+6. **Run the frontend app:**
+   ```
+   npm start
+   ```
+
+---
+
+## Usage
+Visit the home page to learn about SmartStudy.
+- Register a new account and complete your profile.
+- Access resources, participate in forums, and manage your schedule.
+- Use the AI assistant for study help.
+
+---
+
+##Contributing
+
+Contributions are welcome! Please fork the repository and submit a pull request.
+
+---
+
+##License
+
+This project is licensed under the MIT License.
+
+---
+
+##Contact
+
+For questions or support, please contact [owinosospeter60@gmail.com].
