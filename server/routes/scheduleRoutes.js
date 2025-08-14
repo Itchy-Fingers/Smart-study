@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {createSchedule, getAllSchedules, getScheduleById, updateSchedule, deleteSchedule} = require('../controllers/scheduleController');
+const { createSchedule, getAllSchedules, getScheduleById, updateSchedule, deleteSchedule } = require('../controllers/scheduleController');
 const {protect} = require('../middleware/auth');
 
 //Routes

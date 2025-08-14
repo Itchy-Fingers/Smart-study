@@ -1,11 +1,29 @@
 import React from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const Dashboard = () => {
-  const user = {
-    name: "John Doe",
-    level: "Grade 7",
-    progress: 75,
-  };
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const token = localStorage.getItem('token');
+
+        const res = await axios.get('api/users/profile', {
+          headers: {
+            Authorization: `Bearer ${token}`
+          },
+        });
+        setUser(res.data);
+      } catch (err) {
+        console.error("Error fetching user:", err);
+      }
+    };
+    fetchUserData();
+  }, []); 
+
+  if (!user) return <p>Loading...</p>;
 
   return (
     <div className="flex min-h-screen bg-gray-100">
@@ -29,16 +47,32 @@ const Dashboard = () => {
                     <li>
                       <a href="/level/grade8" className="text-blue-500">Grade 8</a>
                     </li>
+                    <li>
+                      <a href="/level/grade9" className="text-blue-500">Grade 9</a>
+                    </li>
                   </ul>
                 </li>
                 <li>
                   <span className="text-gray-700 font-medium">Senior School</span>
-                  {/* Add senior school grades here if needed */}
+                  <ul className="ml-4 mt-1 space-y-1">
+                    <li>
+                      <a href="/level/grade10" className="text-blue-500">Grade 10</a>
+                    </li>
+                    <li>
+                      <a href="/level/grade11" className="text-blue-500">Grade 11</a>
+                    </li>
+                    <li>
+                      <a href="/level/grade12" className="text-blue-500">Grade 12</a>
+                    </li>
+                  </ul>
                 </li>
               </ul>
             </li>
             <li>
               <a href="/forum" className="text-blue-600">💬 Forum</a>
+            </li>
+            <li>
+              <a href="/profile" className="text-blue-600">👤Profile</a>
             </li>
             <li>
               <a href="/schedule" className="text-blue-600">📅 Schedule</a>
@@ -55,7 +89,8 @@ const Dashboard = () => {
 
       {/* Main Content */}
       <div className="flex-1 p-6">
-        <h1 className="text-2xl font-bold mb-4">Welcome, {user.name}</h1>
+        <h1 className="text-2xl font-bold mb-4">Welcome, {user.FullName}</h1>
+        <p><strong>Level:</strong> {user.level}</p>
         <div className="bg-white p-4 rounded shadow-md">
           <div className="bg-blue-500 text-white p-3 rounded mb-4">
             <h2 className="text-lg font-semibold mb-2">Your Progress</h2>

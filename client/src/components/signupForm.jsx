@@ -8,18 +8,21 @@ import { Link } from "react-router-dom"
 
 
 export default function Signup() {
+  const [FullName, setFullName] = useState("");
   const [userName, setUserName] = useState("");
+  const [bio, setBio] = useState("");
+  const [level, setLevel] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSignup = async () => {
-    if (!userName  || !password) return alert("All fields required");
+    if (!FullName|| !userName  || !bio || !level ||!password) return alert("All fields required");
     setLoading(true);
     try {
-      const res = await signup({ userName, password });
+      const res = await signup({ FullName, userName, bio, level, password });
       localStorage.setItem("token", res.data.token);
-      navigate("/registerForm");
+      navigate("/dashboard");
     } catch (err) {
       alert(err.response?.data?.message || "Signup failed");
     } finally {
@@ -35,11 +38,33 @@ export default function Signup() {
         </CardHeader>
         <CardContent className="space-y-4">
           <Input
+              type="text"
+              placeholder="Full Name"
+              value={FullName}
+              onChange={e => setFullName(e.target.value)}
+           />
+          <Input
             type="text"
             placeholder="Username"
             value={userName}
             onChange={e => setUserName(e.target.value)}
             />
+            <Input
+             type="text"
+             placeholder="Bio"
+             value={bio}
+             onChange={e => setBio(e.target.value)}
+           />
+            <select
+              className="w-full border rounded px-3 py-2"
+              value={level}
+              onChange={e => setLevel(e.target.value)}
+              >
+                 <option value="">Select Level</option>
+                     {Array.from({ length: 12 }, (_, i) => (
+                     <option key={i + 1} value={`Grade ${i + 1}`}>{`Grade ${i + 1}`}</option>
+                        ))}
+              </select>
           <Input
             type="password"
             placeholder="Password"
@@ -49,12 +74,12 @@ export default function Signup() {
         </CardContent>
         <CardFooter>
           <Button onClick={handleSignup} disabled={loading} className="w-full">
-            {loading ? "Signing up..." : "Sign Up"}
+            {loading ? "Loading..." : "Sign Up"}
           </Button>
         </CardFooter>
         <p className="text-sm text-center text-zinc-600 dark:text-zinc-300 mt-4">
             Already have an account?{" "}
-            <Link to="/login" className="text-blue-600 hover:underline">
+            <Link to="/loginForm" className="text-blue-600 hover:underline">
                 Login
             </Link>
         </p>

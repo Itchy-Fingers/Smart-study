@@ -18,7 +18,7 @@ export default function Login() {
     try {
       const res = await login({ userName, password });
       localStorage.setItem("token", res.data.token);
-      navigate("./dashboard");
+      navigate("/dashboard");
       if (!res.data?.token){
         alert("Login failed: Not Token");
         return;
@@ -53,13 +53,13 @@ export default function Login() {
         </CardContent>
         <CardFooter className="flex justify-between">
           <Button onClick={handleLogin} disabled={loading} className="w-full">
-            {loading ? "Logging in..." : "Log In"}
+            {loading ? "Loading..." : "Log In"}
           </Button>
         </CardFooter>
 
         <p className="text-sm text-center text-zinc-600 dark:text-zinc-300 mt-4">
             Don't have an account?{" "}
-            <Link to="/signup" className="text-blue-600 hover:underline">
+            <Link to="/signupForm" className="text-blue-600 hover:underline">
                 Sign Up 
             </Link>
         </p>

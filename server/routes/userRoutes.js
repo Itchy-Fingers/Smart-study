@@ -7,7 +7,7 @@ const { protect, authorize } = require('../middleware/auth');
 //Routes
 router.post('/create', protect, createUserProfile); // Create a new user profile
 router.get('/profile', protect, getUserProfile); // Get a single user profile
-router.get('/all', protect, authorize('admin'), getAllUsers); // Get all users (admin only)
+router.get('/all', protect, authorize(['admin']), getAllUsers); // Get all users (admin only)
 router.put('/update', protect, updateUserProfile); // Update user profile
 
 

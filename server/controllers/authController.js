@@ -5,7 +5,7 @@ const User = require("../models/user");
 
 // Signup Endpoint Logic
 exports.signup = async (req, res) => {
-    const { userName, password } = req.body;
+    const { FullName, userName, bio, Level, password } = req.body;
 
     const exists = await User.findOne({ userName });
     if (exists) return res.status(400).json({ message: "User already exists" });
@@ -36,26 +36,26 @@ exports.login = async (req, res) => {
 }
 
 // Register Endpoint Logic
-exports.register = async (req, res) => {
-    const { profilePicture, FullName, bio, Level, email, password } = req.body;
+// exports.register = async (req, res) => {
+//     const { profilePicture, FullName, bio, Level, email, password } = req.body;
 
-    if (!profilePicture || !FullName || !bio || !Level ) {
-        return res.status(400).json({ message: "All fields are required" });
-    }
+//     if (!profilePicture || !FullName || !bio || !Level ) {
+//         return res.status(400).json({ message: "All fields are required" });
+//     }
 
-    const exists = await User.findOne({ email });
-    if (exists) return res.status(400).json({ message: "Email already registered" });
+//     const exists = await User.findOne({ email });
+//     if (exists) return res.status(400).json({ message: "Email already registered" });
 
-    const user = await User.create({
-        profilePicture,
-        FullName,
-        bio,
-        Level,
-    });
+//     const user = await User.create({
+//         profilePicture,
+//         FullName,
+//         bio,
+//         Level,
+//     });
 
-    const token = jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET, {
-        expiresIn: '1h'
-    });
+//     const token = jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET, {
+//         expiresIn: '1h'
+//     });
     
-    res.json({ token });
-};
+//     res.json({ token });
+// };

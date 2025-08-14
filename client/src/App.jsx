@@ -6,7 +6,6 @@ import SchedulePage from './pages/schedulePage';
 import ProfilePage from './pages/profilePage';
 import LoginForm from './components/loginForm';
 import SignupForm from './components/signupForm';
-import RegisterForm from './components/registerForm';
 
 function App() {
   return (
@@ -19,7 +18,6 @@ function App() {
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/loginForm" element={<LoginForm />} />
         <Route path="/signupForm" element={<SignupForm />} />
-        <Route path="/registerForm" element={<RegisterForm />} />
         <Route path="*" element={<div className="flex items-center justify-center min-h-screen"><h1 className="text-2xl font-bold">404 - Page Not Found</h1></div>} />
       </Routes>
     </BrowserRouter>

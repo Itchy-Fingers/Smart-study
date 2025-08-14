@@ -3,9 +3,8 @@ const jwt = require("jsonwebtoken");
 // Checks token
 const protect = (req, res, next) => {
     const auth = req.headers.authorization;
-    if (!auth || !auth.startsWith("Bearer ")) {
-        return res.status(401).json({ message: "No Token Given" });
-    }
+    if (!auth || !auth.startsWith("Bearer ")) return res.status(401).json({ message: "No Token Given" });
+    
 
     const token = auth.split(" ")[1];
     try {
@@ -18,13 +17,9 @@ const protect = (req, res, next) => {
 };
 
 // Checks role
-const authorize = (roles = []) => {
-    // Ensure roles is always an array
-    if (typeof roles === "string") roles = [roles];
+const authorize = (roles) => {
     return (req, res, next) => {
-        if (!roles.includes(req.user.role)) {
-            return res.status(403).json({ message: "Forbidden" });
-        }
+        if (!roles.includes(req.user.role)) return res.status(403).json({ message: "Forbidden"});
         next();
     };
 };
