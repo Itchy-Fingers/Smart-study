@@ -76,20 +76,21 @@ server/
    pnpm install
    ```
 
-3. **Install
+3. **Install client dependencies.**
+   ```
    cd ../client
    pnpm install
    ```
 
-4. **Configure environment variables:**
+5. **Configure environment variables:**
    - Create a `.env` file in the `server` folder with your JWT secret and database URI.
 
-5. **Run the backend server:**
+6. **Run the backend server:**
    ```
    pnpm start
    ```
 
-6. **Run the frontend app:**
+7. **Run the frontend app:**
    ```
    pnpm run dev
    ```
