@@ -32,7 +32,7 @@
 
 - **Frontend:** React, Tailwind CSS
 - **Backend:** Node.js, Express
-- **Database:** MongoDB (or your preferred database)
+- **Database:** MongoDB 
 - **Authentication:** JWT
 - **Routing:** React Router (client), Express Router (server)
 
@@ -59,7 +59,7 @@ server/
 
 ###Prerequisites
 
-- Node.js & npm installed
+- Node.js & pnpm installed
 - MongoDB running 
 
 ###Installation
@@ -73,12 +73,12 @@ server/
 2. **Install server dependencies:**
    ```
    cd server
-   npm install
+   pnpm install
    ```
 
 3. **Install
    cd ../client
-   npm install
+   pnpm install
    ```
 
 4. **Configure environment variables:**
@@ -86,12 +86,12 @@ server/
 
 5. **Run the backend server:**
    ```
-   npm start
+   pnpm start
    ```
 
 6. **Run the frontend app:**
    ```
-   npm start
+   pnpm run dev
    ```
 
 ---
