@@ -1,12 +1,12 @@
-#SmartStudy Project
+# SmartStudy Project
 
-##Overview
+## Overview
 
 **SmartStudy** is an all-in-one academic companion web application designed to help students and educators organize study materials, collaborate in forums, manage schedules, and access tailored resources for enhanced learning. The platform supports competency-based learning and is suitable for all educational levels.
 
 ---
 
-##Features
+## Features
 
 - **User Registration & Authentication:**  
   Secure sign-up and login with JWT-based authentication.
@@ -28,7 +28,7 @@
 
 ---
 
-##Tech Stack
+## Tech Stack
 
 - **Frontend:** React, Tailwind CSS
 - **Backend:** Node.js, Express
@@ -38,7 +38,7 @@
 
 ---
 
-##Folder Structure
+## Folder Structure
 
 ```
 client/
@@ -55,18 +55,18 @@ server/
 
 ---
 
-##Getting Started
+## Getting Started
 
-###Prerequisites
+### Prerequisites
 
 - Node.js & pnpm installed
 - MongoDB running 
 
-###Installation
+### Installation
 
 1. **Clone the repository:**
    ```
-   git clone https://github.com/yourusername/smartstudy-project.git
+   git clone https://github.com/Itchy-Finger/Smart-study.git
    cd smartstudy-project
    ```
 
@@ -104,18 +104,18 @@ Visit the home page to learn about SmartStudy.
 
 ---
 
-##Contributing
+## Contributing
 
 Contributions are welcome! Please fork the repository and submit a pull request.
 
 ---
 
-##License
+## License
 
 This project is licensed under the MIT License.
 
 ---
 
-##Contact
+## Contact
 
 For questions or support, please contact [owinosospeter60@gmail.com].
